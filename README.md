@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Brightloop Subscription Management System
 
 [![Next.js 16](https://img.shields.io/badge/Next.js-16.4.3-black?logo=next.js)](https://nextjs.org/)
@@ -189,3 +190,6 @@ Brightloop is pre-configured for deployment on Vercel:
 - **Server-Only Security Boundaries**: Service role keys and secrets are never exported with `NEXT_PUBLIC_` or accessible in client bundles.
 - **Row-Level Security (RLS)**: Enforced via PostgreSQL policies on all business tables.
 - **Tamper-Proof Invoices**: Historical line items, taxes, and prices are permanently snapshotted at time of creation.
+=======
+# SubManagementSystem
+>>>>>>> d8b5f0e5365148c0aa83b1a6f96f1ef9fc8af0d1
