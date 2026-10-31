@@ -147,49 +147,10 @@ npm run build
 ```
 
 ---
-
-## Vercel Deployment Instructions
-
-Brightloop is pre-configured for deployment on Vercel:
-
-1. Push your repository to GitHub.
-2. In the [Vercel Dashboard](https://vercel.com/new), import your GitHub repository.
-3. Keep default settings:
-   - **Framework Preset**: Next.js
-   - **Build Command**: `next build`
-   - **Output Directory**: `.next`
-4. Add the following **Environment Variables** in Vercel:
-   - `NEXT_PUBLIC_APP_URL`: Your production Vercel URL (e.g. `https://brightloop.vercel.app`)
-   - `NEXT_PUBLIC_SUPABASE_URL`: Your Supabase Project URL
-   - `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`: Your Supabase Anon Key
-   - `SUPABASE_SERVICE_ROLE_KEY`: Your Supabase Service Role Key (Server-Only)
-   - `CRON_SECRET`: Random secure string (Optional, for cron scheduling)
-5. Click **Deploy**.
-6. In Supabase Dashboard -> **Authentication** -> **URL Configuration**:
-   - Set **Site URL** to your Vercel URL.
-   - Add `https://your-app.vercel.app/**` to **Redirect URLs**.
-
----
-
-## Video Demonstration Storyboard (3–4 Minutes)
-
-| Time | Perspective | Screen / URL | Actions & Key Points |
-| :--- | :--- | :--- | :--- |
-| **0:00 – 0:30** | Introduction & Catalogue | `/products` & `/plans` | Show products with Odoo variant deltas (+560) and plans with policy flags (`allowPause`, `allowEarlyClose`). |
-| **0:30 – 1:15** | Quotation Generation | `/quotations` | Create a quotation from template for customer Acme Corp. Point out variant pricing, payment terms, and validity countdown. Send quotation offer. |
-| **1:15 – 1:45** | Customer Portal Self-Service | `/portal` & `/portal/quotations` | Switch to customer login. Show isolated Customer Dashboard. Review offer and click **Accept & Confirm Quotation** (T-10). Offer transitions to Active subscription. |
-| **1:45 – 2:30** | Recurring Billing Engine | `/billing` | Switch to Admin view. Run **"Run Due Billing"**. Verify that an invoice is generated and the subscription's next billing date advances. Show idempotency by re-running billing: 0 duplicates created. |
-| **2:30 – 3:00** | Payment Settlement | `/invoices/[id]` | Inspect invoice line snapshot. Click **Record Payment**. Record a partial payment ($500) → status becomes `partially_paid`. Pay remaining balance → status updates to `paid`. |
-| **3:00 – 3:30** | Financial Reconciliation | `/` & `/portal/invoices` | Show Operations Dashboard KPI counters reconciling collected cash and outstanding dues. Verify customer portal view shows settled receipt and print view. |
-
----
-
 ## Security Invariants
 
 - **Zero Floating-Point Arithmetic**: PostgreSQL `NUMERIC` and integer minor-unit calculations prevent rounding leakage.
 - **Server-Only Security Boundaries**: Service role keys and secrets are never exported with `NEXT_PUBLIC_` or accessible in client bundles.
 - **Row-Level Security (RLS)**: Enforced via PostgreSQL policies on all business tables.
 - **Tamper-Proof Invoices**: Historical line items, taxes, and prices are permanently snapshotted at time of creation.
-=======
-# SubManagementSystem
->>>>>>> d8b5f0e5365148c0aa83b1a6f96f1ef9fc8af0d1
+
