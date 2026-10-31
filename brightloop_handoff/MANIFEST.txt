@@ -1,0 +1,21 @@
+Brightloop Subscription Management System — handoff package
+Generated: 2026-10-31
+
+Contents:
+- Original problem statement PDF (source/)
+- Product requirements and business rules
+- Stakeholder map and acceptance criteria
+- System architecture and industry research notes
+- Relational database design and Supabase SQL migration
+- Technology stack and environment setup
+- API contract
+- Project source tree
+- Hackathon phased implementation plan
+- Test matrix and demo narrative
+- Recurring billing algorithm
+- Requirement traceability matrix
+- AI coding-agent instructions and ready-to-paste handoff prompt
+
+Important implementation gap:
+- `generate_due_invoices()` is fully specified in 08_BILLING_ALGORITHM.md but not implemented in the initial SQL migration. It must be built and tested before enabling the recurring billing schedule.
+- The schema has not been executed against a live Supabase project in this session; apply it to a fresh project and run the RLS tests before relying on it.
